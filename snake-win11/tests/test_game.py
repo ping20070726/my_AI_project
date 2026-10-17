@@ -60,7 +60,7 @@ class Rules(unittest.TestCase):
             save_scores(path, {'简单': 30, '普通': 10})
             self.assertEqual(load_scores(path), {'简单': 30, '普通': 10})
             for content in ('broken', '[]', 'null', '{"简单":true,"普通":-1}'):
-                path.write_text(content)
+                path.write_text(content, encoding='utf-8')
                 self.assertEqual(load_scores(path), {})
 
 
